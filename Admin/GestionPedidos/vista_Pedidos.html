@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="../Styles/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../Styles/gestionPedidosStyles.css">
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-lg navbar-light   fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><span class="">SICEFA</span></a>
+        
+          <div class="navbar-collapse justify-content-center " id="navbarSupportedContent">
+            <ul class="navbar-nav mb-lg-0 justify-content-center"> 
+              
+                  
+              <li class="nav-item marcar">
+                  <a class="nav-link marcar" href="" >    <i class="fa-solid fa-clipboard-list"></i>Pedidos</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="mantenimiento();">  <i class="fa-solid fa-cart-plus"></i>Ventas</a>
+              </li>
+                <li class="nav-item  ">
+                    <a class="nav-link  " href="../GestionClientes/vista_Clientes.html" >   <i class="fa-solid fa-user"></i>Clientes</a>
+            </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="../GestionEmpleados/vista_Empleados.html" >   <i class="fa-solid fa-user"></i>Empleados</a>
+            </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="../GestionStockProductos/vista_StockProductos.html" >   <i class="fa-solid fa-window-restore"></i>Stock productos</a>
+            </li>
+                 <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  text-white"  id="nombreUsuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-user"></i>Administrador
+          </a>
+          <ul class="dropdown-menu "  >
+            <li> <a class="dropdown-item text-dark  "  href="#"> Configuración</a></li>
+            <li><a class="dropdown-item text-danger" href="../../index.html">Cerrar sesión</a></li>
+           
+          </ul>
+        </li>
+            </ul>
+          </div>
+       
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"  ></span>
+          </button>
+        </div>
+      </nav>
+      <br><br><br>
+      <div class="container">
+        <div class="row">
+      
+            <h1 class="text-center farmacia-texto">Gestión pedidos de compra</h1>
+ 
+       
+          <div class="col-md-4 d-flex flex-column justify-content-center">
+          
+             <form class="text-start">
+      <div class="mb-3 spam">
+       <label for="input11">Nombre del producto</label>
+        <input type="text" id="txtnomProd" class="form-control" placeholder="Nombre del medicamento">
+           <span><i class="fa-solid fa-prescription"></i></span>
+      </div>
+      <div class="mb-3">
+         
+      </div>
+      
+
+    </form>
+             
+            
+          </div>
+          <!-- Tercera columna -->
+   
+
+        
+          <div class="col-md-4 d-flex flex-column justify-content-center">
+          
+            <div class="mt-0  spam">
+              <label for="input12">Cantidad</label>
+        <input type="text" id="txtcantidad" class="form-control" placeholder="Cantidad">
+           <span><i class="fa-solid fa-arrow-up-9-1"></i></span>
+              </div>
+                    <div class="mb-3">
+                         
+      </div>
+      
+          </div>   
+              
+          <div class="col-md-4 d-flex flex-column justify-content-center">
+          
+            <div class="mt-0">
+                <br>
+              
+              <button class="ov-btn-slide-right  mx-2 button-1 " id="btnAgregar" onclick="agregarProducto3();">Agregar</button>
+              </div>
+                    <div class="mb-3">
+                         
+      </div>
+      
+          </div>   
+          
+        </div>
+        <div class="row">
+          <div class="d-flex justify-content-center mt-4">
+              <!-- Agregar botón "Agregar" -->
+ 
+                      
+              <!-- Agregar botón "Eliminar" -->
+              
+              <button class="ov-btn-slide-right  mx-2 button-2 " id="btnEliminar" onclick="searchInactivo();">Eliminados</button>
+              <!-- Agregar botón "Modificar" -->
+              
+              <button class="ov-btn-slide-right  mx-2 button-4"  onclick="searchPendiente();">Pendientes </button>
+              
+              <button class="ov-btn-slide-right  mx-2 button-3 " onclick="searchProducto();">Todos</button>
+              
+              
+            </div>
+          </div>
+          
+       
+      
+<div class="row mt-4">
+    <div class="col-sm-12">
+        <!-- Agregar formulario de búsqueda -->
+        <nav class="navbar navbar1 navbar-light">
+            <div class="container-fluid">
+                <form class="d-flex" role="search">
+                    <input class="form-control form-control-sm me-2" type="search" placeholder="Buscar" aria-label="Buscar" id="txtBusquedaProducto">
+                    <button class="btn btn-outline-success btn-sm" type="button"  onclick="searchProducto();">Buscar</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-sm-12">
+        <h5 class="list">Lista de pedidos</h5>
+        
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr class="encabezado">
+                        <th scope="col">#</th>
+                        <th scope="col">Sucursal </th>
+                        <th scope="col">Nombre del empleado</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Productos</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Estatus</th>
+                        <th scope="col">Cambiar Estatus</th>
+                    </tr>
+                </thead>
+                <tbody id="tblProductos">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+      </div>
+     
+        
+      <footer class="text-center text-white" style="background-color: #f1f1f1;">
+        <!-- Grid container -->
+        <div class="container-1 mx-auto">
+            <!-- Section: Social media -->
+            <section class="mb-4 d-flex align-items-center justify-content-center">
+               <!-- Facebook -->
+               <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+               data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+           <!-- Twitter -->
+           <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+               data-mdb-ripple-color="dark"><i class="fa-brands fa-whatsapp"></i></a>
+
+           <!-- Google -->
+           
+
+           <!-- Instagram -->
+           <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+               data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+    
+                <!-- Imagen del logo junto a los iconos -->
+                <img src="../Img/Black___White_Minimalist_Business_Logo-removebg-preview.png"
+                    alt="Logo" width="150px" class="ml-3">
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+    
+        <div class="text-center text-dark container-2" style="background-color: rgba(0, 0, 0, 0.2);">
+            <br>
+            © 2023 Copyright: CodeFour
+        </div>
+        <!-- Copyright -->
+    </footer>
+     
+      <script src="../GestionPedidos/controlador_Pedidos.js"></script>
+      <script src="../Styles/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+</body>
+</html>
+
+<!--for getting the form download the code from download button-->

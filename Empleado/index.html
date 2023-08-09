@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Styles/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/indexStyles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-lg navbar-light   fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span class=""  id="nombreCentroEmpleado" >SICEFA</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse justify-content-center " id="navbarSupportedContent">
+            <ul class="navbar-nav mb-lg-0 justify-content-center"> 
+              
+              
+              <li class="nav-item">
+                  <a class="nav-link text-white" href="#" onclick="mantenimiento();">  <i class="fa-solid fa-cart-plus"></i>Ventas</a>
+              </li>
+                
+                 
+                 <li class="nav-item">
+                     <a class="nav-link text-white" href="GestionStockProductos/vista_StockProductos.html" >   <i class="fa-solid fa-window-restore"></i>Stock productos</a>
+            </li>
+     <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle  text-white" id="nombreUsuarioEmpleado" role="button" data-bs-toggle="dropdown" aria-expanded="false">  
+    <i class="fa-solid fa-user"></i> 
+  </a>
+  <ul class="dropdown-menu "  >
+    <li> <a class="dropdown-item  text-black "  href="#"> Configuración</a></li>
+    <li><a class="dropdown-item text-danger" href="../index.html">Cerrar sesión</a></li>
+  </ul>
+</li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+  <br><!-- comment --> <br><!-- comment --> <br><!-- comment -->
+    
+      <div  class="container d-flex justify-content-center align-items-center">
+          <img src="Styles/Img/sicefa (7).png" alt="Imagen" class="">
+      </div>
+      
+     <script>
+  // Código para mostrar el nombre de usuario y centro en el navbar
+  document.addEventListener("DOMContentLoaded", function() {
+    const nombreUsuarioEmpleado = localStorage.getItem("nombreUsuarioEmpleado");
+     const nombreCentroEmpleado = localStorage.getItem("nombreCentroEmpleado");
+    
+    if (nombreUsuarioEmpleado) {
+    document.getElementById('nombreUsuarioEmpleado').textContent = nombreUsuarioEmpleado;
+     
+    
+  }
+  if (nombreCentroEmpleado) {
+    document.getElementById('nombreCentroEmpleado').textContent = nombreCentroEmpleado;
+  }
+    });
+</script>
+        
+    
+      
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+    <script src="Styles/js/bootstrap.bundle.min.js"></script>
+    <script src="Js/main.js"></script>
+</body>
+</html>
+
+
